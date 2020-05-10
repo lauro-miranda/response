@@ -1,15 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
 namespace LM.Responses
 {
     [DataContract]
-    public class Response : HttpResponseMessage, IActionResult
+    public class Response
     {
         internal protected Response() { }
 
@@ -37,11 +35,6 @@ namespace LM.Responses
             _messages.Add(message);
 
             return this;
-        }
-
-        public Task ExecuteResultAsync(ActionContext context)
-        {
-            return Task.CompletedTask;
         }
     }
 }
